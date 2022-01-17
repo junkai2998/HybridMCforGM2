@@ -1,3 +1,23 @@
 Fast Simulation For Muon G-2 Experiment
 
-The simulation is divided into three parts
+About
+The simulation is divided into three parts:
+1. Beam and spin dynamics of muon in the storage ring
+2. Sampling of positrons spectrum (from muon decay) in LAB frame
+3. Detection of the positrons
+
+
+Versions
+v0.0.0:
+	- first prototype
+	- minor mistakes on sampling of positron PZ in the Muon Rest Frame
+	- corrected part of the code is in part2 file 
+	
+v0.0.1:
+	- correction to minor mistakes on sampling of positron PZ in MRF (by adding artificial spin precession before lorentz boost)
+	- sampling and plotting of the result in the same file (to be separated in the newer version)
+	
+	
+v0.0.2:
+	- separate sampling and plotting codes
+	- added a notebook file for quick visualization (using hist_dict.npy that contains only histogram information from a large dataset)
