@@ -18,6 +18,13 @@ v0.0.1:
 	- sampling and plotting of the result in the same file (to be separated in the newer version)
 	
 	
-v0.0.2:
+v0.0.2: (coming soon)
 	- separate sampling and plotting codes
 	- added a notebook file for quick visualization (using hist_dict.npy that contains only histogram information from a large dataset)
+
+
+v0.1.0: (planning)
+	- add modularity
+	- general rotation (3-parameters) implementation
+p.
+v
