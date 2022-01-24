@@ -22,6 +22,7 @@ v0.0.2: *latest*
 	- separate sampling and plotting codes
 	- added a notebook file for quick visualization (using hist_dict.npy that contains only histogram information from a large dataset)
 	- added information in the codes
+	- the positron sampling codes is still in toyMC status, beam dynamics to be added later
 
 
 v0.1.0: (planning)
