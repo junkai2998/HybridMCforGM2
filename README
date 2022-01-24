@@ -25,6 +25,10 @@ v0.0.2: *latest*
 	- the positron sampling codes is still in toyMC status, beam dynamics to be added later
 
 
-v0.1.0: (planning)
-	- add modularity
+v0.1.0: (comming soon)
+	- add modularity to positron sampling code
+	- incoporated simple beam and spin dynamics (cyclotron motion and spin precession)
+
+
+(planning)
 	- general rotation (3-parameters) implementation
