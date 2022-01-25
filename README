@@ -18,17 +18,32 @@ v0.0.1:
 	- sampling and plotting of the result in the same file (to be separated in the newer version)
 	
 	
-v0.0.2: *latest*
+v0.0.2: 
 	- separate sampling and plotting codes
 	- added a notebook file for quick visualization (using hist_dict.npy that contains only histogram information from a large dataset)
 	- added information in the codes
-	- the positron sampling codes is still in toyMC status, beam dynamics to be added later
+	- the positron sampling codes is still in toyMC status, beam and spin dynamics to be added later
 
 
-v0.1.0: (comming soon)
-	- add modularity to positron sampling code
-	- incoporated simple beam and spin dynamics (cyclotron motion and spin precession)
+v0.1.0: *latest*
+	- added modularity to positron sampling code: test_modules.ipynb
+	- tested positron sampling (with uniformly distributed random number VS simple beam and spin dynamics), see test_modules.ipynb
+	- Changed alpha, rot variables to theta_s (spin angle), theta_c (cyclotron angle)
+	- GeneratePositron_LAB: changed beta_mu_x,z to muDecayPX,Z (muDecay vs muInit problem to be resolved later) 
+	- removed W_mue from GeneratePositron_MRF(to reduce redundancy) and modified GenerateMichelKinematics to return energy,cos(theta) instead of x,cos(theta)
 
+
+v0.1.1: (comming soon)
+	- modules in external .py files: xxxxx, xxxx, xxxx (need to test import np across files ...)
+	- upgrade positron sampling (01_sampling.ipynb in version <v0.1.0) in terms of the modules
+	- incoporated simple beam and spin dynamics (cyclotron motion and spin precession) in simplebd.ipynb
+
+
+v0.1.2:
+	- new directory: 01_beam_spin_dynamics
+	- moved 02_positron_sampling/simplebd.ipynb to 01_beam_spin_dynamics
+	- removed 02_positron_sampling/test_modules.ipynb
+	
 
 (planning)
 	- general rotation (3-parameters) implementation
