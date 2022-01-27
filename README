@@ -34,7 +34,8 @@ v0.1.0: *latest*
 
 
 v0.1.1: (comming soon)
-	- modules in external .py files: xxxxx, xxxx, xxxx (need to test import np across files ...)
+	- removed 02_positron_sampling/test_modules.ipynb
+	- modules in external .py files: xxxxx, xxxx, xxxx (need to test on shared modules and constants across files ...)
 	- upgrade positron sampling (01_sampling.ipynb in version <v0.1.0) in terms of the modules
 	- incoporated simple beam and spin dynamics (cyclotron motion and spin precession) in simplebd.ipynb
 
@@ -42,7 +43,6 @@ v0.1.1: (comming soon)
 v0.1.2:
 	- new directory: 01_beam_spin_dynamics
 	- moved 02_positron_sampling/simplebd.ipynb to 01_beam_spin_dynamics
-	- removed 02_positron_sampling/test_modules.ipynb
 	
 
 (planning)
