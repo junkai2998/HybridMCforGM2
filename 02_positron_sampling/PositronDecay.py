@@ -53,14 +53,29 @@ def R_c(x,omega):
 
 
 def GenerateMichelKinematics():
-    #   // code adapted from geant4 
-    #   // ***************************************************
-    #   //     x0 <= x <= 1.   and   -1 <= y <= 1
-    #   //
-    #   //     F(x,y) = f(x)*g(x,y);   g(x,y) = 1.+g(x)*y
-    #   // ***************************************************
+    """
+    this is the code adapted from geant4 
+      // ***************************************************
+      //     x0 <= x <= 1.   and   -1 <= y <= 1
+      //
+      //     F(x,y) = f(x)*g(x,y);   g(x,y) = 1.+g(x)*y
+      // ***************************************************
 
-    #   // ***** sampling F(x,y) directly (brute force) *****
+      // ***** sampling F(x,y) directly (brute force) *****
+
+    Generate kinematic variables of positrons from muon decay (in the muon rest frame)
+
+    Parameters
+    ---------------
+    None, this function was designed to run once
+    
+    Returns
+    ---------------
+    x 
+        the ratio of positron energy to its maximum decay energy (52.8 MeV)
+    ctheta 
+        the cosine of polar angle (theta, relative to z-axis) of ejected positron
+    """
 
     # initialize variables during michel sampling
     MAX_LOOP = 1000 # maximum number of trials (before giving up the guess)
@@ -129,6 +144,21 @@ def GenerateMichelKinematics():
 
 
 def GeneratePositron_MRF(x,ctheta,theta_s):
+    """
+    generate positrons energy, PX, PY, PZ in muon rest frame
+    Parameters
+    ---------------
+    x 
+        the ratio of positron energy to its maximum decay energy (52.8 MeV)
+    ctheta 
+        the cosine of polar angle (theta, relative to z-axis) of ejected positron
+    theta_s
+        spin precession angle of the muon, relative to its momentum
+    
+    Returns
+    energy, px, py, pz, stheta_s, muDecayPolY, ctheta_s
+    ---------------
+    """
     # https://gitlab.cern.ch/geant4/geant4/-/blob/master/source/externals/clhep/include/CLHEP/Vector/LorentzVector.h
     # get michel x and cos(theta) from the argument
     energy = x*W_mue
@@ -180,6 +210,21 @@ def Calculate_Phase(y1, x1, y2, x2):
 
 
 def GeneratePositron_LAB(E_primed, px_primed, py_primed, pz_primed, theta_c):
+    """
+    generate positrons energy, PX, PY, PZ in muon rest frame
+    Parameters
+    ---------------
+    x 
+        the ratio of positron energy to its maximum decay energy (52.8 MeV)
+    ctheta 
+        the cosine of polar angle (theta, relative to z-axis) of ejected positron
+    theta_c
+        cyclotron angle, ie: the angle between muon momentum relative to z-axis
+    
+    Returns
+    PosiInitE, PosiInitPX, PosiInitPY, PosiInitPZ, muDecayPX, muDecayPY, muDecayPZ
+    ---------------
+    """
     # fixed parameters, lorentz boost parameter (in gm2 experiment)
     p_mu_magic = 3.1 # GeV/c (PRL)
     gamma_mu = 29.3 # (PRL)
