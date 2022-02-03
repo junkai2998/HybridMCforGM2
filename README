@@ -44,7 +44,8 @@ v0.1.1: *latest*
 
 
 v0.1.2: (comming soon)
-	- try simple bd data (turn off muon decay)+ ML to produce wiggle plot
+	- added docstring to functions in positron sampling
+	- try simple bd data (without muon decay) + ML to produce isCaloHit label, and draw wiggle plot for (isCaloHit==1 && posiInitE>1700)
 
 
 (planning)
