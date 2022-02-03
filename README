@@ -25,7 +25,7 @@ v0.0.2:
 	- the positron sampling codes is still in toyMC status, beam and spin dynamics to be added later
 
 
-v0.1.0: *latest*
+v0.1.0:
 	- added modularity to positron sampling code: test_modules.ipynb
 	- tested positron sampling (with uniformly distributed random number VS simple beam and spin dynamics), see test_modules.ipynb
 	- Changed alpha, rot variables to theta_s (spin angle), theta_c (cyclotron angle)
@@ -33,17 +33,19 @@ v0.1.0: *latest*
 	- removed W_mue from GeneratePositron_MRF(to reduce redundancy) and modified GenerateMichelKinematics to return energy,cos(theta) instead of x,cos(theta)
 
 
-v0.1.1: (comming soon)
-	- removed 02_positron_sampling/test_modules.ipynb
-	- modules in external .py files: xxxxx, xxxx, xxxx (need to test on shared modules and constants across files ...)
+v0.1.1: *latest*
+	- revert GenerateMichelKinematics to x,cos(theta)
+	- added muDecayPY return in  GeneratePositron_LAB; muDecayPolY in GeneratePositron_MRF (not considering EDM, set to 0)
+	- removed 02_positron_sampling/test_modules.ipynb and added modules in external .py files: Constants.py, FourVector.py, PositronDecay.py
 	- upgrade positron sampling (01_sampling.ipynb in version <v0.1.0) in terms of the modules
-	- incoporated simple beam and spin dynamics (cyclotron motion and spin precession) in simplebd.ipynb
+	- new directory: 01_beam_spin_dyn,incoporated simple beam and spin dynamics (cyclotron motion and spin precession) in simplebd.ipynb
+	known issues:
+	- EvsPhase diagram not uniform, cant fully matched to gm2ringsim data
 
 
-v0.1.2:
-	- new directory: 01_beam_spin_dynamics
-	- moved 02_positron_sampling/simplebd.ipynb to 01_beam_spin_dynamics
-	
+v0.1.2: (comming soon)
+	- item
+
 
 (planning)
 	- general rotation (3-parameters) implementation
