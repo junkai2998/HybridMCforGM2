@@ -197,16 +197,25 @@ def GeneratePositron_MRF(x,ctheta,theta_s):
 
 
 def Calculate_Phase(y1, x1, y2, x2):
-   # compute the angle difference between vector1 and vector2 given their x,y components. */
-   
-    ans1 = np.arctan2(y1,x1);  # angle of vector 1, muDecayP
-    ans2 = np.arctan2(y2,x2);  # angle of vector 2, muDecayPol
-    ans = ans1 - ans2;
+    """
+    Compute the angle difference between vector1 and vector2 given their x,y components.
+    Parameters: y1, x1, y2, x2
+    ---------------
+    note: to calculate g2phase angle, I use: muDecayPX,muDecayPZ,muDecayPolX,muDecayPolZ
 
-    if(ans<0):
-        ans = ans+2*np.pi;
+    Returns
+    ---------------
+    theta
+    """
 
-    return ans;
+    theta1 = np.arctan2(y1,x1);  # angle of vector 1, muDecayP
+    theta2 = np.arctan2(y2,x2);  # angle of vector 2, muDecayPol
+    theta = theta1 - theta2;
+
+    if(theta<0):
+        theta = theta + 2*np.pi;
+
+    return theta;
 
 
 
