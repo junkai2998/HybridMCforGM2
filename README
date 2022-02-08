@@ -39,14 +39,23 @@ v0.1.1: *latest*
 	- removed 02_positron_sampling/test_modules.ipynb and added modules in external .py files: Constants.py, FourVector.py, PositronDecay.py
 	- upgrade positron sampling (01_sampling.ipynb in version <v0.1.0) in terms of the modules
 	- new directory: 01_beam_spin_dyn,incoporated simple beam and spin dynamics (cyclotron motion and spin precession) in simplebd.ipynb
-	known issues:
-	- EvsPhase diagram not uniform, cant fully matched to gm2ringsim data
+
 
 
 v0.1.2: (comming soon)
 	- added docstring to functions in positron sampling
-	- try simple bd data (without muon decay) + ML to produce isCaloHit label, and draw wiggle plot for (isCaloHit==1 && posiInitE>1700)
+	- change time pts from discrete to continuous (use uniform random numbers)
+	- wiggle plot from toyMC data (cut posiInitE >=1.8 GeV)
+	- unfified seed for all random generators from all modules (PositronDecay.py and simplebd.ipynb).
+	! Major bug (fixed and KIV): in 02_sampling.ipynb (bug since v0.1.0)
+		bug from line: four_momenta_LAB[:,7] = muDecayPolX
+		correct: four_momenta_LAB[i,7] = muDecayPolX
+		affected files: simplebd.ipynb
+	    this resulted in the columns that have the same value, and caused:
+		- painfully long runtime, for N>=1e6
+	    - EvsPhase diagram not uniform, cant fully matched to gm2ringsim data
 
 
 (planning)
+	- try using toyMC data -> DT to get isCaloHit label, and draw wiggle plot for (isCaloHit==1 && posiInitE>1700)
 	- general rotation (3-parameters) implementation
