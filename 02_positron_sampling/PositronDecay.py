@@ -239,11 +239,11 @@ def GeneratePositron_LAB(E_primed, px_primed, py_primed, pz_primed, theta_c):
     PosiInitE, PosiInitPX, PosiInitPY, PosiInitPZ, muDecayPX, muDecayPY, muDecayPZ
     """
     # fixed parameters, lorentz boost parameter (in gm2 experiment)
-    p_mu_magic = 3.1 # GeV/c (PRL)
+    p_mu_magic = 3.1 # GeV/c (PRL) # not used !
     gamma_mu = 29.3 # (PRL)
     beta_mu_squared = 1-(1/gamma_mu)*(1/gamma_mu) # check the redundancy !
     beta_mu = np.sqrt(beta_mu_squared) # calculated from gamma_mu
-    gamma_tau_mu = 64.4e-6 # sec (PRD)
+    gamma_tau_mu = 64.4e-6 # sec (PRD) # not used !
 
     # calculate cyclotron motion for muon using argument theta_c
     ctheta_c = np.cos(theta_c);
