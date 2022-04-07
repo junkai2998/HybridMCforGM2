@@ -155,7 +155,7 @@ def GeneratePositron_MRF(x,ctheta,theta_s):
         the cosine of polar angle (theta, relative to z-axis) of ejected positron
     
     theta_s
-        spin precession angle of the muon, relative to its momentum
+        spin precession angle (cw direction) of the muon, relative to its momentum
     
     Returns
     ---------------
@@ -232,7 +232,7 @@ def GeneratePositron_LAB(E_primed, px_primed, py_primed, pz_primed, theta_c):
         component of positron momentum in muon rest frame
 
     theta_c
-        cyclotron angle in the x-z plane, to fix the velocity components of the moving muon frame 
+        cyclotron angle (cw direction) in the x-z plane, to fix the velocity components of the moving muon frame 
     
     Returns
     ---------------
@@ -247,11 +247,11 @@ def GeneratePositron_LAB(E_primed, px_primed, py_primed, pz_primed, theta_c):
 
     # calculate cyclotron motion for muon using argument theta_c
     ctheta_c = np.cos(theta_c);
-    stheta_c = np.sin(theta_c);
+    stheta_c = np.sin(theta_c); 
 
     # calculate the velocity components of muon frame in LAB frame
     beta_mu_y = 0 # no EDM !!!!
-    beta_mu_x = beta_mu*stheta_c
+    beta_mu_x = beta_mu*stheta_c 
     beta_mu_z = beta_mu*ctheta_c
     
 

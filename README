@@ -2,9 +2,9 @@ Fast Simulation For Muon G-2 Experiment
 
 About
 The simulation is divided into three parts:
-1. Beam and spin dynamics of muon in the storage ring
+1. Beam and spin dynamics of the muons in the storage ring
 2. Sampling of positrons spectrum (from muon decay) in LAB frame
-3. Detection of the positrons
+3. Detection of the positrons (via ML methods)
 
 
 Versions
@@ -39,14 +39,13 @@ v0.1.1: *latest*
 	- removed 02_positron_sampling/test_modules.ipynb and added modules in external .py files: Constants.py, FourVector.py, PositronDecay.py
 	- upgrade positron sampling (01_sampling.ipynb in version <v0.1.0) in terms of the modules
 	- new directory: 01_beam_spin_dyn,incoporated simple beam and spin dynamics (cyclotron motion and spin precession) in simplebd.ipynb
+	* note 7/4/2022: using spin precession angle is not consistent with gm2ringsim, which use muon polarization to fix positron momentum direction
 
 
-
-v0.1.2: (comming soon)
+v0.1.2: (comming soon) git tag -a v0.1.2 -m "updated from v0.1.1, with bug fixed"
 	- added docstring to functions in positron sampling
 	- change time pts from discrete to continuous (use uniform random numbers)
 	- wiggle plot from toyMC data (cut posiInitE >=1.8 GeV)
-	- unfified seed for all random generators from all modules (PositronDecay.py and simplebd.ipynb).
 	! Major bug (fixed and KIV): in 02_sampling.ipynb (bug since v0.1.0)
 		bug from line: four_momenta_LAB[:,7] = muDecayPolX
 		correct: four_momenta_LAB[i,7] = muDecayPolX
@@ -54,8 +53,22 @@ v0.1.2: (comming soon)
 	    this resulted in the columns that have the same value, and caused:
 		- painfully long runtime, for N>=1e6
 	    - EvsPhase diagram not uniform, cant fully matched to gm2ringsim data
+	- not implemented: unified seed for all random generators from all modules (PositronDecay.py and simplebd.ipynb).
+	- this version was used to generate data for BDT phase map studies. But it relied on simple BD (not yet included in the repo), and it gave major issue (single r,p)
+
+v0.1.3:(comming soon)
+	- included sample (complete,working) codes to generate data for BDT phase map 
+	- try using toyMC data -> DT to get isCaloHit label, and draw wiggle plot for (isCaloHit==1 && posiInitE>1700)
+
+v0.2.0:(comming soon)
+	- crude, ad-hoc implementation of 3-vector class
+	- GaussianGasGun (docsdb2571)::ProduceMuonVector implementation, with modifications:
+		- uniform / exponential decay time distribution
+		- sample the storage ring in circular shape (instead of square in original implementation)
+	- modified positron codes (v0.1.3 and before is mainly positron sampling) to suite 3-vector class and physics of ProduceMuonVector
+	- included codes for test and characterizing the complete muon+positron codes
+	- included sample (complete,working) codes to generate data for BDT phase map 
 
 
 (planning)
-	- try using toyMC data -> DT to get isCaloHit label, and draw wiggle plot for (isCaloHit==1 && posiInitE>1700)
 	- general rotation (3-parameters) implementation
